@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel_1</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/styles__inforBlog.css">
+    <link rel="stylesheet" href="../css/styles_blog.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+    <div class="inforBlog">
+        <div class="inforBlog--search">
+            <div id="search" onclick="searchBlog()"><i class="fas fa-search"></i></div>
+            <input type="text" placeholder="Search..." id="txtSearch" />
+            <div id="deleteSearch" onclick="deleteSearch()"><i class="fas fa-times"></i></div>
+        </div>
+        <div class="inforBlog--container">
+
+        </div>
+
+        <div class="inforBlog--comment">
+            <div class="inforBlog--comment__body">
+                <div class="commnet--title">
+                    <p>Commnent</p>
+                </div>
+                <div class="line--comment"></div>
+                <div class="comment--main">
+                    <div class="author--imgage"><img src="../img/avatar.jpg" /></div>
+                    <form>
+                        <textarea placeholder="Write your comment" id="txtComment"></textarea>
+                        <div class="btn--commnent">
+                            <button id="clear">Cancel</button>
+                            <input type="button" value="Publish" id="creatCmt" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="inforBlog--userComment" id="userComment">
+
+        </div>
+
+    </div>
+
+
+    <!------------------- javascript GET POST ------------------------->
+    <script>
+        let postApi = "http://localhost:3000/post_travel/1";
+
+        function start() {
+            getPosts(renderPosts);
+        }
+        start();
+
+        function getPosts(callback) {
+            fetch(postApi)
+                .then(function (reponsive) {
+                    return reponsive.json();
+                })
+                .then(callback)
+        }
+
+        function renderPosts(posts) {
+            let contentBlog = document.querySelector(".inforBlog--container");
+
+            console.log(posts);
+            let htmls = `
+    <div class="inforBlog--container__author">
+        <div class="author--imgage"><img src="../img/avatar.jpg" /></div>
+        <span class="date">Nov 19,2020</span>
+    </div>
+    <div class="inforBlog--container__title">
+        <span>
+            <h1>${posts.title}</h1>
+        </span>
+    </div>
+    <div class="inforBlog--container__main">
+    <div class="main--head">
+        <span>
+            <strong>${posts.mainhead}</strong>
+        </span>
+    </div>
+    <div class="main--imgage">
+        <img src="${posts.image}" />
+    </div>
+    <div class="main--welcome">
+        <span>${posts.mainwelcome}</span>
+    </div>
+    <div class="main--focus">
+        <span>${posts.mainfocus}</span>
+    </div>
+    <div class="main--cate">
+        <span>${posts.maincate}</span>
+    </div>
+    <div class="main--content">
+        <span>${posts.maincontent}</span>
+    </div>
+    <div class="main--foot">
+        <span>${posts.mainfoot}</span>
+    </div>
+    </div>
+
+    <div class="line--blog__1"></div>
+        <div class="inforBlog--container__share">
+        <ul>
+            <li><i class="fab fa-facebook-f"></i></li>
+            <li><i class="fab fa-twitter"></i></li>
+            <li><i class="fab fa-instagram"></i></li>
+            <li><i class="fas fa-link"></i></li>
+        </ul>
+        <div>
+            <span>Eat</span>
+        </div>
+    </div>
+    <div class="line--blog__2"></div>
+    <div class="inforBlog--container__infor">
+        <div class="blog--view">
+            <p>0</p>
+            <p>views</p>
+        </div>
+        <div class="blog--love"><i class="far fa-heart"></i></div>
+    </div>
+    `;
+
+            contentBlog.innerHTML = htmls;
+        }
+    </script>
+
+    <!------------------- javascript GET COMMENT ------------------------->
+    <script>
+
+        function dateComment() {
+            let m = new Date().getMonth();
+            let d = new Date().getDate();
+            let y = new Date().getFullYear();
+
+            let month;
+            switch (m) {
+                case 0:
+                    month = "Jan";
+                    break;
+                case 1:
+                    month = "Feb";
+                    break;
+                case 2:
+                    month = "Mar";
+                    break;
+                case 3:
+                    month = "Apr";
+                    break;
+                case 4:
+                    month = "May";
+                    break;
+                case 5:
+                    month = "Jun";
+                    break;
+                case 6:
+                    month = "Jul";
+                    break;
+                case 7:
+                    month = "Aug";
+                    break;
+                case 8:
+                    month = "Sep";
+                    break;
+                case 9:
+                    month = "Oct";
+                    break;
+                case 10:
+                    month = "Nov";
+                    break;
+                case 11:
+                    month = "Dec";
+                    break;
+            }
+            console.log(month);
+            console.log(d);
+            console.log(y);
+            return `${month} ${d}${","}${y}`;
+            //document.getElementById("dateCmt").innerHTML += (`<div class="inforBlog--userComment--date" id="dateCmt">${month} ${d}${","}${y}</div>`)
+        }
+
+        let commentApi = "http://localhost:3000/comment_travel1";
+
+        function start() {
+            getCmts(renderCmts);
+
+            handleCreatCmt();
+        }
+
+        start();
+
+        function getCmts(callback) {
+            fetch(commentApi)
+                .then(function (reponsive) {
+                    return reponsive.json();
+                })
+                .then(callback)
+        }
+
+        function createCmts(data, callback) {
+            let options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: JSON.stringify(data)
+            };
+            fetch(commentApi, options)
+                .then(function (reponsive) {
+                    return reponsive.json();
+                })
+                .then(callback)
+        }
+
+        function handleDeleteCmts(id) {
+            let options = {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                },
+            };
+            fetch(commentApi + '/' + id, options)
+                .then(function (reponsive) {
+                    return reponsive.json();
+                })
+                .then(function () {
+                    getCmts(renderCmts);
+                })
+        }
+
+        function renderCmts(comments) {
+            let cmtBlock = document.querySelector(".inforBlog--userComment");
+
+            let htmls = comments.map(function (comment) {
+                return `
+        <div class="inforBlog--userComment__body">
+            <div class="author--imgage"><img src="../img/avatar.jpg" /></div>
+            <div class="inforBlog--userComment__content">
+                <span>Anonymous Users</span>
+                <div class="inforBlog--userComment--date" id="dateCmt">${comment.date}</div>
+                <br />
+                <p id="contentCmt">${comment.content}</p>
+            </div>
+            <div id="delete" onclick="handleDeleteCmts(${comment.id})"><i class="fas fa-plus"></i></div>
+        </div>
+        `;
+            });
+            cmtBlock.innerHTML = htmls.join('');
+        }
+
+        function handleCreatCmt() {
+            let creatBtn = document.querySelector("#creatCmt");
+
+            creatBtn.onclick = function () {
+                let content = document.querySelector("#txtComment").value;
+                let date = dateComment();
+                let formData = {
+                    date: date,
+                    content: content
+                };
+
+                createCmts(formData, function () {
+                    getCmts(renderCmts);
+                });
+            }
+        }
+
+    </script>
+
+    <script src="../js/plugin.js"></script>
+    <script src="../js/search.js"></script>
+</body>
+</body>
+
+</html>

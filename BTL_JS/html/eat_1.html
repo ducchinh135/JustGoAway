@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eat_1</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/styles__inforBlog.css">
+    <link rel="stylesheet" href="../css/styles_blog.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+    <div class="inforBlog">
+        <div class="inforBlog--search">
+            <div id="search" onclick="searchBlog()"><i class="fas fa-search"></i></div>
+            <input type="text" placeholder="Search..." id="txtSearch" />
+            <div id="deleteSearch" onclick="deleteSearch()"><i class="fas fa-times"></i></div>
+        </div>
+        <div class="inforBlog--container">
+            <!-- <div class="inforBlog--container__author">
+                <div class="inforBlog--container__author">
+                    <div class="author--imgage"><img src="../img/avatar.jpg" /></div>
+                    <span class="date">Nov 19,2020</span>
+                </div>
+            </div>
+            <div class="inforBlog--container__title">
+                <span>
+                    <h1>East of Eden - The Best of Thailand’s Markets</h1>
+                </span>
+            </div>
+            <div class="inforBlog--container__main">
+                <div class="main--head">
+                    <span>
+                        <strong>Create a blog post subtitle that summarizes your post in a few short, punchy sentences
+                            and entices your audience to continue reading.</strong>
+                    </span>
+                </div>
+                <div class="main--imgage">
+                    <img src="../img/img_eat1.jpg" />
+                </div>
+                <div class="main--welcome">
+                    <span>Welcome to your blog post. Use this space to connect with your readers and potential customers
+                        in a way that’s current and interesting. Think of it as an ongoing conversation where you can
+                        share updates about business, trends, news, and more.</span>
+                </div>
+                <div class="main--focus">
+                    <span>“Do you have a design in mind for your blog? Whether you prefer a trendy postcard look or
+                        you’re going for a more editorial style blog - there’s a stunning layout for everyone.”</span>
+                </div>
+                <div class="main--cate">
+                    <span>You’ll be posting loads of engaging content, so be sure to keep your blog organized with
+                        Categories that also allow visitors to explore more of what interests them.</span>
+                </div>
+                <div class="main--content">
+                    <span>Writing a blog is a great way to position yourself as an authority in your field and captivate
+                        your readers’ attention. Do you want to improve your site’s SEO ranking? Consider topics that
+                        focus on relevant keywords and relate back to your website or business. You can also add
+                        hashtags (#vacation #dream #summer) throughout your posts to reach more people, and help
+                        visitors search for relevant content. </span>
+                </div>
+                <div class="main--foot">
+                    <span>Blogging gives your site a voice, so let your business’ personality shine through. Choose a
+                        great image to feature in your post or add a video for extra engagement. Are you ready to get
+                        started? Simply create a new post now.</span>
+                </div>
+            </div>
+
+            <div class="line--blog__1"></div>
+            <div class="inforBlog--container__share">
+                <ul>
+                    <li><i class="fab fa-facebook-f"></i></li>
+                    <li><i class="fab fa-twitter"></i></li>
+                    <li><i class="fab fa-instagram"></i></li>
+                    <li><i class="fas fa-link"></i></li>
+                </ul>
+                <div>
+                    <span>Eat</span>
+                </div>
+            </div>
+            <div class="line--blog__2"></div>
+            <div class="inforBlog--container__infor">
+                <div class="blog--view">
+                    <p>0</p>
+                    <p>views</p>
+                </div>
+                <div class="blog--love"><i class="far fa-heart"></i></div>
+            </div> -->
+        </div>
+
+        <div class="inforBlog--comment">
+            <div class="inforBlog--comment__body">
+                <div class="commnet--title">
+                    <p>Commnent</p>
+                </div>
+                <div class="line--comment"></div>
+                <div class="comment--main">
+                    <div class="author--imgage"><img src="../img/avatar.jpg" /></div>
+                    <form>
+                        <textarea placeholder="Write your comment" id="txtComment"></textarea>
+                        <div class="btn--commnent">
+                            <button id="clear">Cancel</button>
+                            <input type="button" value="Publish" id="creatCmt" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="inforBlog--userComment" id="userComment">
+            <!-- <div class="inforBlog--userComment__body">
+                <div class="author--imgage"><img src="../img/avatar.jpg" /></div>
+                <div class="inforBlog--userComment__content">
+                    <span>Anonymous Users</span>
+                    <div class="inforBlog--userComment--date" id="dateCmt">Nov 19,2020</div>
+                    <br />
+                    <p id="contentCmt">This is great blog</p>
+                </div>
+                <div id="delete" onclick="handleDeleteCmts()"><i class="fas fa-plus"></i></div>
+            </div> -->
+        </div>
+
+    </div>
+
+    <script src="../js/pushBlog.js"></script>
+    <script src="../js/plugin.js"></script>
+    <script src="../js/comment.js"></script>
+    <script src="../js/search.js"></script>
+</body>
+
+</html>
