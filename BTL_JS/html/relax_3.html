@@ -49,7 +49,6 @@
                 <a href="#"><i class="fab fa-twitter"></i></a>
                 <a href="#"><i class="fab fa-youtube"></i></a>
             </div>
-<<<<<<< HEAD
 
             <!-- Nav mobile -->
             <div class="toggle-collapse" id="openNav">
@@ -86,17 +85,35 @@
                     <a href="#"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
-=======
->>>>>>> 637cc4ac26c5f1cee37381028398d5233e123513
         </div>
     </nav>
 
     <div class="inforBlog">
         <div class="inforBlog--search">
-            <div id="search" onclick="searchBlog()"><i class="fas fa-search"></i></div>
-            <input type="text" placeholder="Search..." id="txtSearch" />
-            <div id="deleteSearch" onclick="deleteSearch()"><i class="fas fa-times"></i></div>
+            <div onclick="searchBlog()">
+                <i id="search" class="fas fa-search"></i>
+                <strong id="fade" style="display: none;"><input type="text" placeholder="Search..."
+                        id="txtSearch" /></strong>
+                <strong id="deleteSearch" onclick="deleteSearch()" style="display: none;"><i
+                        class="fas fa-times"></i></strong>
+            </div>
         </div>
+        <script>
+            $("#search").dblclick(function () {
+                $("#fade").toggle();
+                $("#deleteSearch").toggle();
+            });
+        </script>
+        <br />
+        <main>
+            <section class="site-title">
+                <div class="site-background" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Tours & Travels</h3>
+                    <h1>Amazing Place on Earth</h1>
+                    <button class="btn">Explore</button>
+                </div>
+            </section>
+        </main>
         <div class="inforBlog--container">
 
         </div>
@@ -128,12 +145,8 @@
         <div class="container">
             <div class="about-us" data-aos="fade-right" data-aos-delay="200">
                 <h2>About us</h2>
-<<<<<<< HEAD
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quia atque nemo ad modi officiis
                     iure, autem nulla tenetur repellendus.</p>
-=======
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quia atque nemo ad modi officiis iure, autem nulla tenetur repellendus.</p>
->>>>>>> 637cc4ac26c5f1cee37381028398d5233e123513
             </div>
             <div class="newsletter" data-aos="fade-right" data-aos-delay="200">
                 <h2>Newsletter</h2>
@@ -168,11 +181,7 @@
         </div>
         <div class="rights flex-row">
             <h4 class="text-gray">
-<<<<<<< HEAD
                 Copyright ©2021 All rights reserved
-=======
-                Copyright ©2019 All rights reserved
->>>>>>> 637cc4ac26c5f1cee37381028398d5233e123513
             </h4>
         </div>
         <div class="move-up">
@@ -192,7 +201,7 @@
 
         function getPosts(callback) {
             fetch(postApi)
-                .then(function(reponsive) {
+                .then(function (reponsive) {
                     return reponsive.json();
                 })
                 .then(callback)
@@ -317,61 +326,33 @@
             //document.getElementById("dateCmt").innerHTML += (`<div class="inforBlog--userComment--date" id="dateCmt">${month} ${d}${","}${y}</div>`)
         }
 
-        let commentApi = "http://localhost:3000/comment_relax3";
+        let commentApi = "http://localhost:3000/post_relax/3";
 
         function start() {
             getCmts(renderCmts);
 
-            handleCreatCmt();
+            getCmts(handleCreatCmt);
         }
 
         start();
 
         function getCmts(callback) {
             fetch(commentApi)
-                .then(function(reponsive) {
+                .then(function (reponsive) {
                     return reponsive.json();
                 })
                 .then(callback)
         }
 
-        function createCmts(data, callback) {
-            let options = {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                        // 'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: JSON.stringify(data)
-            };
-            fetch(commentApi, options)
-                .then(function(reponsive) {
-                    return reponsive.json();
-                })
-                .then(callback)
-        }
 
-        function handleDeleteCmts(id) {
-            let options = {
-                method: 'DELETE',
-                headers: {
-                    'Content-Type': 'application/json'
-                        // 'Content-Type': 'application/x-www-form-urlencoded',
-                },
-            };
-            fetch(commentApi + '/' + id, options)
-                .then(function(reponsive) {
-                    return reponsive.json();
-                })
-                .then(function() {
-                    getCmts(renderCmts);
-                })
-        }
-
-        function renderCmts(comments) {
+        function renderCmts(post) {
             let cmtBlock = document.querySelector(".inforBlog--userComment");
 
-            let htmls = comments.map(function(comment) {
+            let listCmts = post.comment;
+
+
+            let htmls = listCmts.map(function (comment) {
+
                 return `
         <div class="inforBlog--userComment__body">
             <div class="author--imgage"><img src="../img/avatar.jpg" /></div>
@@ -386,31 +367,48 @@
         `;
             });
             cmtBlock.innerHTML = htmls.join('');
+
         }
 
-        function handleCreatCmt() {
+        function handleCreatCmt(post) {
             let creatBtn = document.querySelector("#creatCmt");
 
-            creatBtn.onclick = function() {
+            creatBtn.onclick = function () {
                 let content = document.querySelector("#txtComment").value;
                 let date = dateComment();
+                let listID = [];
+                for (i in post.comment) {
+                    listID.push(Number(i))
+                }
+                console.log(listID.length);
                 let formData = {
+                    id: listID.length + 1,
                     date: date,
                     content: content
                 };
 
-                createCmts(formData, function() {
-                    getCmts(renderCmts);
-                });
+                post.comment.push(formData);
+
+
+                fetch(commentApi, {
+                    method: 'PUT', // or 'PUT'
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ ...post }),
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        getCmts(renderCmts);
+                    })
+                    .catch((error) => {
+                        console.error('Error:', error);
+                    });
             }
         }
     </script>
-<<<<<<< HEAD
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-=======
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
->>>>>>> 637cc4ac26c5f1cee37381028398d5233e123513
     <script src="../js/plugin.js"></script>
     <script src="../js/search.js"></script>
     <!-- --------- Owl-Carousel js ------------------->

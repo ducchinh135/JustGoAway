@@ -1,8 +1,4 @@
-*{
-    text-align: justify;
-}
-
-.inforBlog{
+.inforBlog {
     /* position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -14,17 +10,21 @@
 .inforBlog--search {
     display: flex;
     align-items: center;
+    margin: 15px 0 0 35px;
 }
+
 .inforBlog--search input {
     border: none;
     outline: none;
     border-bottom: 1px solid;
     margin: 0px 10px;
 }
+
 #search {
     cursor: pointer;
     font-size: 18px;
 }
+
 #deleteSearch {
     cursor: pointer;
     opacity: .5;
@@ -40,25 +40,27 @@
     min-width: 100%;
 }
 
-.inforBlog--container__author{
+.inforBlog--container__author {
     display: flex;
     margin-top: 10px;
     align-items: center;
 }
-.blog--author{
+
+.blog--author {
     display: flex;
     align-items: center;
 }
-.author--imgage img{
+
+.author--imgage img {
     width: 40px;
     height: 40px;
     border-radius: 50%;
 }
+
 .inforBlog--container__author .date {
     margin-left: 15px;
     opacity: 0.6;
 }
-
 
 .inforBlog--container__title {
     margin-top: 25px;
@@ -86,10 +88,12 @@
     font-size: 18px;
 }
 
-.main--cate, .main--content {
+.main--cate,
+.main--content {
     font-size: 18px;
     margin-top: 30px;
 }
+
 .main--foot {
     font-size: 18px;
 }
@@ -99,19 +103,24 @@
     align-items: center;
     justify-content: space-between;
 }
+
 .inforBlog--container__share ul {
     display: flex;
     list-style: none;
     padding: 0;
 }
+
 .inforBlog--container__share ul li {
     margin-left: 30px;
 }
+
 .inforBlog--container__share ul li:nth-child(1) {
     margin: 0;
 }
+
 .inforBlog--container__share ul li:hover {
-    color: rgb(37, 115, 218);;
+    color: rgb(37, 115, 218);
+    ;
 }
 
 .inforBlog--container__infor {
@@ -120,29 +129,33 @@
     justify-content: space-between;
     margin-top: 10px;
 }
+
 .inforBlog--container__infor .blog--view {
     display: flex;
 }
+
 .inforBlog--container__infor .blog--view p {
     margin-left: 10px;
 }
+
 .inforBlog--container__infor .blog--love {
     cursor: pointer;
 }
+
 .inforBlog--container__infor .blog--love:hover {
     color: red;
 }
+
 .line--blog__1 {
     border-bottom: 1px solid;
     opacity: 0.3;
     margin-top: 40px;
 }
+
 .line--blog__2 {
     border-bottom: 1px solid;
     opacity: 0.3;
 }
-
-
 
 .inforBlog--comment {
     border: 1px solid rgba(242, 242, 242, 0.75);
@@ -151,11 +164,13 @@
     display: flex;
     justify-content: center;
 }
+
 .inforBlog--comment__body {
     max-width: 740px;
     width: 100%;
     flex: 1;
 }
+
 .commnet--title {
     width: 100%;
     padding: 16px 0;
@@ -163,14 +178,17 @@
     align-items: center;
     justify-content: space-between;
 }
+
 .commnet--title p {
     font-size: 20px;
 }
+
 .line--comment {
     border-bottom: 1px solid;
     margin-top: 20px;
     opacity: 0.3;
 }
+
 .comment--main {
     margin-top: 20px;
     display: flex;
@@ -182,16 +200,17 @@
 }
 
 .comment--main form {
-    border: 1px solid  rgba(173, 173, 173, 0.75);
+    border: 1px solid rgba(173, 173, 173, 0.75);
     padding: 15px;
     width: 685px;
     margin-left: 15px;
-    
 }
+
 .btn--commnent {
     display: flex;
     justify-content: flex-end;
 }
+
 textarea {
     resize: none;
     overflow: hidden;
@@ -201,22 +220,26 @@ textarea {
     transition: .5s;
 }
 
-input[type="button"], button {
+input[type="button"],
+button {
     padding: 10px 15px;
     border: none;
     outline: none;
     border-radius: 5px;
     cursor: pointer;
 }
+
 input[type="button"] {
     color: #fff;
     background-color: rgb(45, 130, 199);
     margin-left: 10px;
 }
+
 button {
     background-color: #fff;
     color: rgb(45, 130, 199);
 }
+
 .btn--commnent {
     display: none;
 }
@@ -231,6 +254,7 @@ button {
     align-items: center;
     border: 1px solid rgba(242, 242, 242, 0.75);
 }
+
 .inforBlog--userComment__body {
     max-width: 740px;
     width: 100%;
@@ -241,10 +265,12 @@ button {
     height: 125px;
     position: relative;
 }
-.inforBlog--userComment__content{
+
+.inforBlog--userComment__content {
     width: 685px;
     margin-left: 15px;
 }
+
 #delete {
     transform: rotate(45deg);
     position: absolute;

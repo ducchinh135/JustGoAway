@@ -66,43 +66,10 @@ function getCmts(callback) {
 }
 
 
-// function createCmts(data, callback) {
-//     let options = {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json'
-//             // 'Content-Type': 'application/x-www-form-urlencoded',
-//         },
-//         body: JSON.stringify(data)
-//     };
-//     fetch(commentApi, options)
-//         .then(function (reponsive) {
-//             return reponsive.json();
-//         })
-//         .then(callback)
-// }
-
-// function handleDeleteCmts(id) {
-//     let options = {
-//         method: 'DELETE',
-//         headers: {
-//             'Content-Type': 'application/json'
-//             // 'Content-Type': 'application/x-www-form-urlencoded',
-//         },
-//     };
-//     fetch(commentApi + '/' + id, options)
-//         .then(function (reponsive) {
-//             return reponsive.json();
-//         })
-//         .then(function () {
-//             getCmts(renderCmts);
-//         })
-// }
-
-function renderCmts(comments) {
+function renderCmts(post) {
     let cmtBlock = document.querySelector(".inforBlog--userComment");
 
-    let listCmts = comments.comment;
+    let listCmts = post.comment;
     console.log(listCmts)
 
     let htmls = listCmts.map(function (comment) {
@@ -121,40 +88,43 @@ function renderCmts(comments) {
         `;
     });
     cmtBlock.innerHTML = htmls.join('');
+
 }
 
-function handleCreatCmt(comments) {
+function handleCreatCmt(post) {
     let creatBtn = document.querySelector("#creatCmt");
 
     creatBtn.onclick = function () {
         let content = document.querySelector("#txtComment").value;
         let date = dateComment();
+        let listID = [];
+        for (i in post.comment) {
+            listID.push(Number(i))
+        }
+        console.log(listID.length);
         let formData = {
+            id: listID.length + 1,
             date: date,
             content: content
         };
 
-        console.log(formData);
+        post.comment.push(formData);
 
-        let htmls = comments.comment;
-        htmls.push(formData)
 
-        console.log(comments)
-
-        // fetch(commentApi, {
-        //     method: 'POST', // or 'PUT'
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify(comments),
-        // })
-        //     .then(response => response.json())
-        //     .then(data => {
-        //         console.log('Success:', data);
-        //     })
-        //     .catch((error) => {
-        //         console.error('Error:', error);
-        //     });
+        fetch(commentApi, {
+            method: 'PUT', // or 'PUT'
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ ...post }),
+        })
+            .then(response => response.json())
+            .then(data => {
+                getCmts(renderCmts);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
     }
 }
 
