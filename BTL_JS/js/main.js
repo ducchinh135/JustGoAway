@@ -40,6 +40,7 @@ $(document).ready(function () {
 
 });
 
+// Nav-Mobile//
 let openNav = document.getElementById("openNav");
 let closeNav = document.getElementById("closeNav");
 let overlay = document.getElementById("overlay");
@@ -56,3 +57,16 @@ closeNav.onclick = function () {
     navMobile.style.opacity = "0";
     overlay.style.display = "none";
 }
+
+// Send Mail //
+let btnMail = document.getElementById("btnMail");
+
+btnMail.onclick = function () {
+    let mail = document.getElementById("txtMail").value;
+    let hrefMail = document.getElementById("hrefMail");
+
+    hrefMail.href = `mailto:${mail}`;
+}
+
+
+

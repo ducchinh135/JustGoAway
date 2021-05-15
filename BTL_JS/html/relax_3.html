@@ -406,6 +406,48 @@
                     });
             }
         }
+        function handleDeleteCmts(id) {
+            let deleteID = id;
+            getCmts(function (post) {
+                post.comment.splice((id - 1), 1)
+
+                fetch(commentApi, {
+                    method: 'PUT', // or 'PUT'
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ ...post }),
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        getCmts(renderCmts);
+                    })
+                    .catch((error) => {
+                        console.error('Error:', error);
+                    });
+            })
+        }
+        function handleDeleteCmts(id) {
+            let deleteID = id;
+            getCmts(function (post) {
+                post.comment.splice((id - 1), 1)
+
+                fetch(commentApi, {
+                    method: 'PUT', // or 'PUT'
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ ...post }),
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        getCmts(renderCmts);
+                    })
+                    .catch((error) => {
+                        console.error('Error:', error);
+                    });
+            })
+        }
     </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

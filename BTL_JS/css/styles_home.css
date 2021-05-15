@@ -121,6 +121,7 @@ main p , footer p{
     position: relative;
     font-family: var(--Abel);
     font-size: 1.1rem;
+    cursor: pointer;
 }
 
 .nav .nav-items .nav-link:hover{
@@ -355,7 +356,8 @@ footer.footer .container h2{
 
 footer.footer .newsletter .form-element{
     background: black;
-    display: inline-block;
+    display: flex;
+    align-items: center;
 }
 
 footer.footer .newsletter .form-element input{
@@ -418,7 +420,6 @@ footer.footer .move-up span:hover{
     position: absolute;
     top: 0%;
     width: 90%;
-    cursor: pointer;
     display: none;
 }
 
@@ -431,6 +432,7 @@ footer.footer .move-up span:hover{
 .nav .toggle-collapse .toggle-icons i{
     font-size: 1.4rem;
     color: var(--text-gray);
+    cursor: pointer;
 }
 .nav-overlay {
     position: fixed;
@@ -490,6 +492,9 @@ footer.footer .move-up span:hover{
 @media screen and (max-width: 63.938rem) and (min-width: 46.25rem) {
     .nav .toggle-collapse{
         display: initial;
+    }
+    .nav .nav-brand {
+        cursor: pointer !important;
     }
     .nav .social, .nav .nav-items{
         display: none;

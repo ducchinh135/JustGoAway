@@ -31,7 +31,7 @@
     <nav class="nav">
         <div class="nav-menu flex-row">
             <div class="nav-brand">
-                <a href="#" class="text-gray">Blooger</a>
+                <a href="./home.html" class="text-gray">Blooger</a>
             </div>
             <div>
                 <ul class="nav-items">
@@ -59,10 +59,10 @@
                 <a href="#"><i class="fab fa-youtube"></i></a>
             </div>
 
-            <!-- Nav mobile -->
-            <div class="toggle-collapse" id="openNav">
+            <!-- Nav mobile ----->
+            <div class="toggle-collapse">
                 <div class="toggle-icons">
-                    <i class="fas fa-bars"></i>
+                    <i class="fas fa-bars" id="openNav"></i>
                 </div>
             </div>
 
@@ -122,7 +122,7 @@
                         <div class="blog-content" data-aos="fade-right" data-aos-delay="200">
                             <img src="../img/Slide01.jpg" alt="post-1">
                             <div class="blog-title">
-                                <h3>Travel to live, Live to travel</h3>
+                                <h3>Book with us and book it out of here!</h3>
                             </div>
                         </div>
                         <div class="blog-content" data-aos="fade-in" data-aos-delay="200">
@@ -134,7 +134,7 @@
                         <div class="blog-content" data-aos="fade-left" data-aos-delay="200">
                             <img src="../img/Slide03.jpg" alt="post-1">
                             <div class="blog-title">
-                                <h3>Say yes to new adventures</h3>
+                                <h3>Don’t just book it. Thomas Cook it</h3>
                             </div>
                         </div>
                         <div class="blog-content" data-aos="fade-right" data-aos-delay="200">
@@ -283,7 +283,9 @@
                 <h2>Newsletter</h2>
                 <p>Stay update with our latest</p>
                 <div class="form-element">
-                    <input type="text" placeholder="Email"><span><i class="fas fa-chevron-right"></i></span>
+                    <input type="text" placeholder="Email" id="txtMail">
+                    <span id="btnMail"><a id="hrefMail" href="mailto:abc@gmail.com"><i
+                                class="fas fa-chevron-right"></a></i></span>
                 </div>
             </div>
             <div class="follow" data-aos="fade-left" data-aos-delay="200">

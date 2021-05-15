@@ -69,7 +69,7 @@ function getCmts(callback) {
 function renderCmts(post) {
     let cmtBlock = document.querySelector(".inforBlog--userComment");
 
-    let listCmts = post.comment;
+    let listCmts = post.comment.reverse();
     console.log(listCmts)
 
     let htmls = listCmts.map(function (comment) {
@@ -127,5 +127,29 @@ function handleCreatCmt(post) {
             });
     }
 }
+
+function handleDeleteCmts(id) {
+    let deleteID = id;
+    getCmts(function (post) {
+        post.comment.splice((id - 1), 1)
+
+        fetch(commentApi, {
+            method: 'PUT', // or 'PUT'
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ ...post }),
+        })
+            .then(response => response.json())
+            .then(data => {
+                getCmts(renderCmts);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    })
+}
+
+
 
 
