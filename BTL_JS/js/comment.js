@@ -43,19 +43,16 @@ function dateComment() {
             month = "Dec";
             break;
     }
-    console.log(month);
-    console.log(d);
-    console.log(y);
     return `${month} ${d}${","}${y}`;
     //document.getElementById("dateCmt").innerHTML += (`<div class="inforBlog--userComment--date" id="dateCmt">${month} ${d}${","}${y}</div>`)
 }
 
-let commentApi = "http://localhost:3000/comment_eat1";
+let commentApi = "http://localhost:3000/posts/1";
 
 function start() {
     getCmts(renderCmts);
 
-    handleCreatCmt();
+    getCmts(handleCreatCmt);
 }
 
 start();
@@ -68,43 +65,48 @@ function getCmts(callback) {
         .then(callback)
 }
 
-function createCmts(data, callback) {
-    let options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-            // 'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: JSON.stringify(data)
-    };
-    fetch(commentApi, options)
-        .then(function (reponsive) {
-            return reponsive.json();
-        })
-        .then(callback)
-}
 
-function handleDeleteCmts(id) {
-    let options = {
-        method: 'DELETE',
-        headers: {
-            'Content-Type': 'application/json'
-            // 'Content-Type': 'application/x-www-form-urlencoded',
-        },
-    };
-    fetch(commentApi + '/' + id, options)
-        .then(function (reponsive) {
-            return reponsive.json();
-        })
-        .then(function () {
-            getCmts(renderCmts);
-        })
-}
+// function createCmts(data, callback) {
+//     let options = {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json'
+//             // 'Content-Type': 'application/x-www-form-urlencoded',
+//         },
+//         body: JSON.stringify(data)
+//     };
+//     fetch(commentApi, options)
+//         .then(function (reponsive) {
+//             return reponsive.json();
+//         })
+//         .then(callback)
+// }
+
+// function handleDeleteCmts(id) {
+//     let options = {
+//         method: 'DELETE',
+//         headers: {
+//             'Content-Type': 'application/json'
+//             // 'Content-Type': 'application/x-www-form-urlencoded',
+//         },
+//     };
+//     fetch(commentApi + '/' + id, options)
+//         .then(function (reponsive) {
+//             return reponsive.json();
+//         })
+//         .then(function () {
+//             getCmts(renderCmts);
+//         })
+// }
 
 function renderCmts(comments) {
     let cmtBlock = document.querySelector(".inforBlog--userComment");
 
-    let htmls = comments.map(function (comment) {
+    let listCmts = comments.comment;
+    console.log(listCmts)
+
+    let htmls = listCmts.map(function (comment) {
+
         return `
         <div class="inforBlog--userComment__body">
             <div class="author--imgage"><img src="../img/avatar.jpg" /></div>
@@ -121,7 +123,7 @@ function renderCmts(comments) {
     cmtBlock.innerHTML = htmls.join('');
 }
 
-function handleCreatCmt() {
+function handleCreatCmt(comments) {
     let creatBtn = document.querySelector("#creatCmt");
 
     creatBtn.onclick = function () {
@@ -132,9 +134,27 @@ function handleCreatCmt() {
             content: content
         };
 
-        createCmts(formData, function () {
-            getCmts(renderCmts);
-        });
+        console.log(formData);
+
+        let htmls = comments.comment;
+        htmls.push(formData)
+
+        console.log(comments)
+
+        // fetch(commentApi, {
+        //     method: 'POST', // or 'PUT'
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify(comments),
+        // })
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         console.log('Success:', data);
+        //     })
+        //     .catch((error) => {
+        //         console.error('Error:', error);
+        //     });
     }
 }
 

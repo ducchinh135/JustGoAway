@@ -1,0 +1,16 @@
+{
+    "folders": [
+		{
+			"path": "..\\..\\..\\TravelBlog02"
+		},
+		{
+			"path": ".."
+		},
+		{
+			"path": "..\\..\\json_sever"
+		}
+	],
+    "settings": {
+        "liveServer.settings.multiRootWorkspaceName": "BTL_JS"
+    }
+}

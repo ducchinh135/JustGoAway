@@ -7,53 +7,39 @@ start();
 
 function getPosts(callback) {
     fetch(postApi)
-        .then(function (reponsive) {
+        .then(function(reponsive) {
             return reponsive.json();
         })
         .then(callback)
 }
 
 function renderPosts(posts) {
-    let postBlock = document.querySelector(".blog--container");
-    let htmls = posts.map(function (post) {
+    let postBlock = document.querySelector(".posts");
+    let htmls = posts.map(function(post) {
         return `
-        <div class="blog--container__main">
-                <div class="container--image">
-                    <a href="./relax_${post.id}.html"><img src="${post.image}" /></a>
+        <div class="post-content" data-aos="zoom-in" data-aos-delay="200">
+            <div class="post-image">
+                <div>
+                    <img src="${post.image}" class="img" alt="blog1">
                 </div>
-                <div class="container--author">
-                    <div class="author--imgage"><img src="../img/avatar.jpg" /></div>
-                    <span class="date">Nov 19,2020</span>
-                </div>
-                <div class="container--infor">
-                    <a href="./relax_${post.id}.html">
-                        <div class="container--infor__head">
-                            ${post.title}
-                        </div>
-                        <div class="container--infor__body">
-                            ${post.mainhead}
-                        </div>
-                    </a>
-                    <div class="line"></div>
-                    <div class="container--infor__foot">
-                        <div class="foot--left">
-                            <div><i class="far fa-eye"></i>
-                                <p>0</p>
-                            </div>
-                            <a href="./relax_${post.id}.html">
-                                <div class="social--comment"><i class="far fa-comment-alt"></i>
-                                    <p>0</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="social--love"><i class="far fa-heart"></i></div>
-                    </div>
+                <div class="post-info flex-row">
+                    <span><i class="fas fa-user text-gray"></i>&nbsp;&nbsp;Admin</span>
+                    <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 14, 2019</span>
+                    <span>2 Comments</span>
                 </div>
             </div>
-        `;
+            <div class="post-title">
+                <a href="../html/relax_${post.id}.html">${post.title}</a>
+                <p>${post.mainHead}
+                </p>
+                <button class="btn post-btn"><a href="../html/relax_${post.id}.html">Read More &nbsp; <i class="fas fa-arrow-right"></i></a></button>
+            </div>
+        </div>
+        <hr>`;
     });
     postBlock.innerHTML = htmls.join('');
 }
+
 
 // let a = document.querySelector('.blog--container');
 // console.log(a)

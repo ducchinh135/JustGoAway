@@ -29,26 +29,26 @@ function renderPosts(posts) {
 <div class="inforBlog--container__main">
     <div class="main--head">
         <span>
-            <strong>${posts.mainhead}</strong>
+            <strong>${posts.mainHead}</strong>
         </span>
     </div>
     <div class="main--imgage">
         <img src="${posts.image}" />
     </div>
     <div class="main--welcome">
-        <span>${posts.mainwelcome}</span>
+        <span>${posts.mainWelcome}</span>
     </div>
     <div class="main--focus">
-        <span>${posts.mainfocus}</span>
+        <span>${posts.mainFocus}</span>
     </div>
     <div class="main--cate">
-        <span>${posts.maincate}</span>
+        <span>${posts.mainCate}</span>
     </div>
     <div class="main--content">
-        <span>${posts.maincontent}</span>
+        <span>${posts.mainContent}</span>
     </div>
     <div class="main--foot">
-        <span>${posts.mainfoot}</span>
+        <span>${posts.mainFoot}</span>
     </div>
 </div>
 

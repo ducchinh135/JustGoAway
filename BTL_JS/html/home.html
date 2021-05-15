@@ -6,150 +6,334 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js">
+
     <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/styles_home.css">
-    <link rel="stylesheet" href="../css/styles_blog.css">
+
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- --------- Owl-Carousel ------------------->
+    <link rel="stylesheet" href="../css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../css/owl.theme.default.min.css">
+
+    <!-- ------------ AOS Library ------------------------- -->
+    <link rel="stylesheet" href="../css/aos.css">
+
+    <!---------------- Cutom Styles -------------------------------->
+    <link rel="stylesheet" href="../css/styles_home.css">
+
 </head>
 
 <body>
-    <div class="main">
-        <div class="header">
-            <div class="header--container center">
-                <div id="logo"><a href="./home.html">Travel Blog</a></div>
-                <ul id="nav">
-                    <li><a href="./home.html">Home</a></li>
-                    <li><a href="">About</a></li>
-                    <li><a href="./travel.html">Travel</a></li>
-                    <li><a href="./eat.html">Eat</a></li>
-                    <li><a href="./relax.html">Relax</a></li>
-                    <li><a href="">Videos</a></li>
+    <!-- ----------------------------  Navigation ---------------------------------------------- -->
+    <nav class="nav">
+        <div class="nav-menu flex-row">
+            <div class="nav-brand">
+                <a href="#" class="text-gray">Blooger</a>
+            </div>
+            <div>
+                <ul class="nav-items">
+                    <li class="nav-link">
+<<<<<<< HEAD
+                        <a href="./home.html">Home</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="./travel.html">Travel</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="./eat.html">Eat</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="./relax.html">Relax</a>
+=======
+                        <a href="../html/home.html">Home</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="../html/travel.html">Travel</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="../html/eat.html">Eat</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="../html/relax.html">Relax</a>
+>>>>>>> 637cc4ac26c5f1cee37381028398d5233e123513
+                    </li>
+                    <li class="nav-link">
+                        <a href="../Videos/index.html">Videos</a>
+                    </li>
                 </ul>
             </div>
-        </div>
-
-        <div class="slider">
-            <div class="slider--text">
-                <h2 class="text--heading">Going Places</h2>
-                <div class="text--description">Just go because life allows</div>
+            <div class="social text-gray">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
             </div>
-        </div>
 
-        <div class="content">
-            <div class="content--section">
-                <p class="section--text">
-                    It’s a big world out there, go explore.
-                </p>
-                <div class="theme--list">
-                    <div class="theme--item">
-                        <img src="../img/Travel.jpg" />
-                        <a href="" class="theme--name center--theme">Travel</a>
-                    </div>
-                    <div class="theme--item">
-                        <img src="../img/Eat.jpg" />
-                        <a href="" class="theme--name center--theme">Eat</a>
-                    </div>
-                    <div class="theme--item">
-                        <img src="../img/Relax.jpg" />
-                        <a href="" class="theme--name center--theme">Relax</a>
-                    </div>
+            <!-- Nav mobile -->
+            <div class="toggle-collapse" id="openNav">
+                <div class="toggle-icons">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+
+            <div class="nav-overlay" id="overlay"></div>
+
+            <div class="nav__mobile" id="navMobile">
+                <div class="nav__mobile-close" id="closeNav"><i class="fas fa-times"></i></div>
+                <ul class="nav__mobile-items">
+                    <li class="nav__mobile-link">
+                        <a href="./home.html">Home</a>
+                    </li>
+                    <li class="nav__mobile-link">
+                        <a href="./travel.html">Travel</a>
+                    </li>
+                    <li class="nav__mobile-link">
+                        <a href="./eat.html">Eat</a>
+                    </li>
+                    <li class="nav__mobile-link">
+                        <a href="./relax.html">Relax</a>
+                    </li>
+                    <li class="nav__mobile-link">
+                        <a href="../Videos/index.html">Videos</a>
+                    </li>
+                </ul>
+                <div class="social__mobile text-gray">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
         </div>
 
-        <div class="blog">
-            <div class="blog--container" id="listBlock">
-                <div class="blog--container__main">
-                    <div class="container--image">
-                        <a href="./eat_1.html"><img src="../img/img_eat1.jpg" /></a>
-                    </div>
-                    <div class="container--author">
-                        <div class="author--imgage"><img src="../img/avatar.jpg" /></div>
-                        <span class="date">Nov 19,2020</span>
-                    </div>
-                    <div class="container--infor">
-                        <a href="./eat_1.html">
-                            <div class="container--infor__head">
-                                East of Eden - The Best of Thailand’s Markets
+    </nav>
+    <!-- ------------x---------------  Navigation --------------------------x------------------- -->
+
+    <!----------------------------- Main Site Section ------------------------------>
+
+    <main>
+        <!------------------------ Site Title ---------------------->
+        <section class="site-title">
+            <div class="site-background" data-aos="fade-up" data-aos-delay="100">
+                <h3>Tours & Travels</h3>
+                <h1>Amazing Place on Earth</h1>
+                <button class="btn">Explore</button>
+            </div>
+        </section>
+
+        <!------------x----------- Site Title ----------x----------->
+
+        <!-- --------------------- Blog Carousel ----------------- -->
+
+        <section>
+            <div class="blog">
+                <div class="container">
+                    <div class="owl-carousel owl-theme blog-post">
+                        <div class="blog-content" data-aos="fade-right" data-aos-delay="200">
+                            <img src="../img/Slide01.jpg" alt="post-1">
+                            <div class="blog-title">
+                                <h3>Travel to live, Live to travel</h3>
                             </div>
-                            <div class="container--infor__body">
-                                Create a blog post subtitle that summarizes your post in a few short,
-                                punchy sentences
-                                and entices your audience to continue reading....
+                        </div>
+                        <div class="blog-content" data-aos="fade-in" data-aos-delay="200">
+                            <img src="../img/Slide02.jpg" alt="post-1">
+                            <div class="blog-title">
+                                <h3>Someday I’M gonna travel the world</h3>
                             </div>
-                        </a>
-                        <div class="line"></div>
-                        <div class="container--infor__foot">
-                            <div class="foot--left">
-                                <div><i class="far fa-eye"></i>
-                                    <p>0</p>
-                                </div>
-                                <a href="./eat_1.html">
-                                    <div class="social--comment"><i class="far fa-comment-alt"></i>
-                                        <p>0</p>
-                                    </div>
-                                </a>
+                        </div>
+                        <div class="blog-content" data-aos="fade-left" data-aos-delay="200">
+                            <img src="../img/Slide03.jpg" alt="post-1">
+                            <div class="blog-title">
+                                <h3>Say yes to new adventures</h3>
                             </div>
-                            <div class="social--love"><i class="far fa-heart"></i></div>
+                        </div>
+                        <div class="blog-content" data-aos="fade-right" data-aos-delay="200">
+                            <img src="../img/Slide04.jpg" alt="post-1">
+                            <div class="blog-title">
+                                <h3>Go and see all you possibly can</h3>
+                            </div>
+                        </div>
+                        <div class="blog-content" data-aos="fade-right" data-aos-delay="200">
+                            <img src="../img/Slide05.jpg" alt="post-1">
+                            <div class="blog-title">
+                                <h3>Travel more to discover yourself</h3>
+                            </div>
+                        </div>
+                        <div class="blog-content" data-aos="fade-right" data-aos-delay="200">
+                            <img src="../img/Slide06.jpg" alt="post-1">
+                            <div class="blog-title">
+                                <h3>Don’t be a tourist, be a traveler</h3>
+                            </div>
                         </div>
                     </div>
+                    <div class="owl-navigation">
+                        <span class="owl-nav-prev" data-aos="fade-in" data-aos-delay="200"><i
+                                class="fas fa-long-arrow-alt-left"></i></span>
+                        <span class="owl-nav-next" data-aos="fade-in" data-aos-delay="200"><i
+                                class="fas fa-long-arrow-alt-right"></i></span>
+                    </div>
                 </div>
             </div>
+        </section>
 
+        <!-- ----------x---------- Blog Carousel --------x-------- -->
+
+        <!-- ---------------------- Site Content -------------------------->
+
+        <section class="container">
+            <div class="site-content">
+                <div class="posts">
+                    <!-- <div class="post-content" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="post-image">
+                            <div>
+                                <img src="../img/img_travel1.jpg" class="img" alt="blog1">
+                            </div>
+                            <div class="post-info flex-row">
+                                <span><i class="fas fa-user text-gray"></i>&nbsp;&nbsp;Admin</span>
+                                <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 14, 2019</span>
+                                <span>2 Commets</span>
+                            </div>
+                        </div>
+                        <div class="post-title">
+                            <a href="#">Why should boys have all the fun? it's the women who are making india an
+                                alcohol-loving contry</a>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque voluptas deserunt beatae
+                                adipisci iusto totam placeat corrupti ipsum, tempora magnam incidunt aperiam tenetur a
+                                nobis, voluptate, numquam architecto fugit. Eligendi quidem ipsam ducimus minus magni
+                                illum similique veniam tempore unde?
+                            </p>
+                            <button class="btn post-btn">Read More &nbsp; <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                    <hr> -->
+                </div>
+                <aside class="sidebar">
+                    <div class="popular-post">
+                        <h2>Popular Post</h2>
+                        <div class="post-content" data-aos="flip-up" data-aos-delay="200">
+                            <div class="post-image">
+                                <div>
+                                    <img src="../img/img_eat1.jpg" class="img" alt="blog1">
+                                </div>
+                                <div class="post-info flex-row">
+                                    <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 14,
+                                        2019</span>
+                                    <span>2 Comments</span>
+                                </div>
+                            </div>
+                            <div class="post-title">
+                                <a href="../html/eat_1.html">East of Eden - The Best of Thailand’s Markets</a>
+                            </div>
+                        </div>
+                        <div class="post-content" data-aos="flip-up" data-aos-delay="200">
+                            <div class="post-image">
+                                <div>
+                                    <img src="../img/img_relax1.jpg" class="img" alt="blog1">
+                                </div>
+                                <div class="post-info flex-row">
+                                    <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 14,
+                                        2019</span>
+                                    <span>2 Comments</span>
+                                </div>
+                            </div>
+                            <div class="post-title">
+                                <a href="../html/relax_1.html">Silky Sands, Turquoise Surf</a>
+                            </div>
+                        </div>
+                        <div class="post-content" data-aos="flip-up" data-aos-delay="200">
+                            <div class="post-image">
+                                <div>
+                                    <img src="../img/img_eat3.jpg" class="img" alt="blog1">
+                                </div>
+                                <div class="post-info flex-row">
+                                    <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 14,
+                                        2019</span>
+                                    <span>2 Comments</span>
+                                </div>
+                            </div>
+                            <div class="post-title">
+                                <a href="../html/eat_3.html">What’s Cooking, Mexico?</a>
+                            </div>
+                        </div>
+                        <div class="post-content" data-aos="flip-up" data-aos-delay="200">
+                            <div class="post-image">
+                                <div>
+                                    <img src="../img/img_travel1.jpg" class="img" alt="blog1">
+                                </div>
+                                <div class="post-info flex-row">
+                                    <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 14,
+                                        2019</span>
+                                    <span>2 Comments</span>
+                                </div>
+                            </div>
+                            <div class="post-title">
+                                <a href="../html/travel_1.html">Mykonos with Mr. & Mrs. Smith</a>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <!-- -----------x---------- Site Content -------------x------------>
+
+    </main>
+
+    <!--------------x-------------- Main Site Section --------------x--------------->
+
+    <!-- --------------------------- Footer ---------------------------------------- -->
+    <footer class="footer">
+        <div class="container">
+            <div class="about-us" data-aos="fade-right" data-aos-delay="200">
+                <h2>About us</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quia atque nemo ad modi officiis iure, autem nulla tenetur repellendus.</p>
+            </div>
+            <div class="newsletter" data-aos="fade-right" data-aos-delay="200">
+                <h2>Newsletter</h2>
+                <p>Stay update with our latest</p>
+                <div class="form-element">
+                    <input type="text" placeholder="Email"><span><i class="fas fa-chevron-right"></i></span>
+                </div>
+            </div>
+            <div class="follow" data-aos="fade-left" data-aos-delay="200">
+                <h2>Follow us</h2>
+                <p>Let us be Social</p>
+                <div>
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+            </div>
         </div>
-
-
-        <div class="contact">
-            <div class="contact--icon">
-                <div class="icon--social">
-                    <a href="#">
-                        <i class="fab fa-facebook-f"></i>
-                        <p class="icon--name">Facebook</p>
-                    </a>
-                </div>
-                <div class="icon--social">
-                    <a href="#">
-                        <i class="fab fa-instagram"></i>
-                        <p class="icon--name">Instagram</p>
-                    </a>
-                </div>
-                <div class="icon--social">
-                    <a href="#">
-                        <i class="fab fa-pinterest-p"></i>
-                        <p class="icon--name">Pinterest</p>
-                    </a>
-                </div>
-                <div class="icon--social">
-                    <a href="#">
-                        <i class="fab fa-twitter"></i>
-                        <p class="icon--name">Twitter</p>
-                    </a>
-                </div>
-            </div>
+        <div class="rights flex-row">
+            <h4 class="text-gray">
+                Copyright ©2021 All rights reserved
+            </h4>
         </div>
-
-        <div class="footer">
-            <div class="footer--about">
-                <img src="../img/author.jpg" />
-                <div class="about--content">
-                    <h2>About Me</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, ducimus, eius hic dolores neque
-                        nesciunt tempore rerum sit omnis veritatis doloribus eaque exercitationem nostrum, vel esse
-                        corporis doloremque. Dolores, veniam.</p>
-                    <a href="">Read More</a>
-                </div>
-            </div>
-
-            <div class="footer--subcribe">
-                <h2>Join My Mailing List</h2>
-                <p>Email</p>
-                <input type="email" id="emailUser" value placeholder="Enter your email here" />
-                <button>Subcribe Now</button>
-            </div>
+        <div class="move-up">
+            <span><i class="fas fa-arrow-circle-up fa-2x"></i></span>
         </div>
-    </div>
+    </footer>
+    <!-- ---------------x----------- Footer ------------------------x--------------- -->
 
-    <!-- <script src="../js/index_eat.js"></script> -->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- --------- Owl-Carousel js ------------------->
+    <script src="../js/owl.carousel.min.js"></script>
+
+    <!-- ------------ AOS js Library  ------------------------- -->
+    <script src="../js/aos.js"></script>
+
+    <!-- Custom Javascript file -->
+    <script src="../js/main.js"></script>
+
+    <script src="../js/index_travel.js"></script>
+
 </body>
 
 </html>

@@ -2,11 +2,28 @@
     /* display:  grid;
     grid-template-rows: 1fr;
     grid-template-columns: 1fr; */
-    position: absolute;
+    /* position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    min-width: 64%;
+    min-width: 64%; */
+    margin-bottom: 52px;
+    margin-top: 67px;
 }
+
+.blog--content {
+    display: flex;
+    justify-content: center;
+}
+
+.blog--description {
+    display: flex;
+    justify-content: center;
+}
+
+.blog--description__content {
+    width: 64%;
+}
+
 .blog--main {
     margin-top: 48px;
     font-size: 30px;
@@ -16,6 +33,10 @@
     margin-bottom: 40px;
     opacity: 0.8;
     text-align: justify;
+}
+
+.blog--container {
+    width: 64%;
 }
 
 .blog--container__main {
