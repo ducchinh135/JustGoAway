@@ -7,7 +7,7 @@ start();
 
 function getPosts(callback) {
     fetch(postApi)
-        .then(function(reponsive) {
+        .then(function (reponsive) {
             return reponsive.json();
         })
         .then(callback)
@@ -15,7 +15,7 @@ function getPosts(callback) {
 
 function renderPosts(posts) {
     let postBlock = document.querySelector(".posts");
-    let htmls = posts.map(function(post) {
+    let htmls = posts.map(function (post) {
         return `
         <div class="post-content" data-aos="zoom-in" data-aos-delay="200">
             <div class="post-image">
@@ -25,7 +25,7 @@ function renderPosts(posts) {
                 <div class="post-info flex-row">
                     <span><i class="fas fa-user text-gray"></i>&nbsp;&nbsp;Admin</span>
                     <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 14, 2019</span>
-                    <span>2 Comments</span>
+                    <span>${post.comment.length} Comments</span>
                 </div>
             </div>
             <div class="post-title">

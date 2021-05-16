@@ -125,6 +125,8 @@ function handleCreatCmt(post) {
             .catch((error) => {
                 console.error('Error:', error);
             });
+
+        document.querySelector("#txtComment").value = "";
     }
 }
 
@@ -132,6 +134,10 @@ function handleDeleteCmts(id) {
     let deleteID = id;
     getCmts(function (post) {
         post.comment.splice((id - 1), 1)
+
+        for (let i = 0; i < post.comment.length; i++) {
+            post.comment[i].id = post.comment.length - (post.comment.length - (i + 1))
+        }
 
         fetch(commentApi, {
             method: 'PUT', // or 'PUT'

@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Relax_1</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </script>
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/styles__inforBlog.css">
     <link rel="stylesheet" href="../css/styles_blog.css">
@@ -26,21 +28,31 @@
             </div>
             <div>
                 <ul class="nav-items">
-                    <li class="nav-link">
-                        <a href="../html/home.html">Home</a>
-                    </li>
-                    <li class="nav-link">
-                        <a href="../html/travel.html">Travel</a>
-                    </li>
-                    <li class="nav-link">
-                        <a href="../html/eat.html">Eat</a>
-                    </li>
-                    <li class="nav-link">
-                        <a href="../html/relax.html">Relax</a>
-                    </li>
-                    <li class="nav-link">
-                        <a href="../Videos/index.html">Videos</a>
-                    </li>
+                    <a href="../html/home.html">
+                        <li class="nav-link">
+                            Home
+                        </li>
+                    </a>
+                    <a href="../html/travel.html">
+                        <li class="nav-link">
+                            Travel
+                        </li>
+                    </a>
+                    <a href="../html/eat.html">
+                        <li class="nav-link">
+                            Eat
+                        </li>
+                    </a>
+                    <a href="../html/relax.html">
+                        <li class="nav-link">
+                            Relax
+                        </li>
+                    </a>
+                    <a href="../Videos/index.html">
+                        <li class="nav-link">
+                            Video
+                        </li>
+                    </a>
                 </ul>
             </div>
             <div class="social text-gray">
@@ -89,31 +101,30 @@
     </nav>
 
     <div class="inforBlog">
-        <div class="inforBlog--search">
-            <div onclick="searchBlog()">
-                <i id="search" class="fas fa-search"></i>
-                <strong id="fade" style="display: none;"><input type="text" placeholder="Search..."
-                        id="txtSearch" /></strong>
-                <strong id="deleteSearch" onclick="deleteSearch()" style="display: none;"><i
-                        class="fas fa-times"></i></strong>
-            </div>
-        </div>
-        <script>
-            $("#search").dblclick(function () {
-                $("#fade").toggle();
-                $("#deleteSearch").toggle();
-            });
-        </script>
-        <br />
         <main>
-            <section class="site-title">
-                <div class="site-background" data-aos="fade-up" data-aos-delay="100">
+            <section class="site-title1">
+                <div class="site-background1" data-aos="fade-up" data-aos-delay="100">
                     <h3>Tours & Travels</h3>
                     <h1>Amazing Place on Earth</h1>
-                    <button class="btn">Explore</button>
+                    <a href="#exploree"><button class="btn">Explore</button></a>
                 </div>
             </section>
         </main>
+        <div class="inforBlog--search">
+            <div>
+                <i id="search-icon" class="fas fa-search"></i>
+                <span id="search-bar" style="display: none;">
+                    <i id="search" onclick="searchBlog()" class="fas fa-search"></i>
+                    <strong id="fade"><input type="text" placeholder="Search..." id="txtSearch" /></strong>
+                    <strong id="deleteSearch" onclick="deleteSearch()"><i class="fas fa-times"></i></strong>
+                </span>
+            </div>
+        </div>
+        <script>
+            $("#search-icon").click(function () {
+                $("#search-bar").toggle();
+            });
+        </script>
         <div class="inforBlog--container">
 
         </div>
@@ -154,22 +165,12 @@
                 <h2>Newsletter</h2>
                 <p>Stay update with our latest</p>
                 <div class="form-element">
-                    <input type="text" placeholder="Email"><span><i class="fas fa-chevron-right"></i></span>
+                    <input type="text" placeholder="Email" id="txtMail">
+                    <span id="btnMail"><a id="hrefMail" href="mailto:abc@gmail.com"><i
+                                class="fas fa-chevron-right"></a></i></span>
                 </div>
             </div>
-            <!-- <div class="instagram" data-aos="fade-left" data-aos-delay="200">
-                <h2>Instagram</h2>
-                <div class="flex-row">
-                    <img src="./assets/instagram/thumb-card3.png" alt="insta1">
-                    <img src="./assets/instagram/thumb-card4.png" alt="insta2">
-                    <img src="./assets/instagram/thumb-card5.png" alt="insta3">
-                </div>
-                <div class="flex-row">
-                    <img src="./assets/instagram/thumb-card6.png" alt="insta4">
-                    <img src="./assets/instagram/thumb-card7.png" alt="insta5">
-                    <img src="./assets/instagram/thumb-card8.png" alt="insta6">
-                </div>
-            </div> -->
+
             <div class="follow" data-aos="fade-left" data-aos-delay="200">
                 <h2>Follow us</h2>
                 <p>Let us be Social</p>
@@ -350,7 +351,7 @@
         function renderCmts(post) {
             let cmtBlock = document.querySelector(".inforBlog--userComment");
 
-            let listCmts = post.comment;
+            let listCmts = post.comment.reverse();
 
 
             let htmls = listCmts.map(function (comment) {
@@ -406,13 +407,17 @@
                     .catch((error) => {
                         console.error('Error:', error);
                     });
+                document.querySelector("#txtComment").value = "";
             }
+
         }
         function handleDeleteCmts(id) {
             let deleteID = id;
             getCmts(function (post) {
                 post.comment.splice((id - 1), 1)
-
+                for (let i = 0; i < post.comment.length; i++) {
+                    post.comment[i].id = post.comment.length - (post.comment.length - (i + 1))
+                }
                 fetch(commentApi, {
                     method: 'PUT', // or 'PUT'
                     headers: {

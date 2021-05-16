@@ -66,7 +66,11 @@ btnMail.onclick = function () {
     let hrefMail = document.getElementById("hrefMail");
 
     hrefMail.href = `mailto:${mail}`;
+    console.log(hrefMail);
+    document.querySelector("#txtMail").value = "";
 }
+
+
 
 
 

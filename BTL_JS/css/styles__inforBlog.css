@@ -280,3 +280,54 @@ button {
     font-size: 15px;
     cursor: pointer;
 }
+
+main .site-title1 {
+    background: url('../img/BackGround-mini2.jpg');
+    background-size: cover;
+    background-position: bottom;
+    height: 52vh;
+    display: flex;
+    justify-content: center;
+}
+
+main .site-title1 .site-background1 {
+    padding-top: 10rem;
+    text-align: center;
+    color: var(--white);
+}
+
+main .site-title1 h1,
+h3 {
+    position: relative;
+    margin: .3rem;
+    top: -4rem;
+}
+
+main .site-title1 .btn {
+    position: relative;
+    margin: 1.8rem;
+    background: var(--sky);
+    top: -4rem;
+}
+
+main .site-title1 .btn:hover {
+    background: transparent;
+    border: 1px solid var(--white);
+    color: var(--white);
+}
+
+#search-bar {
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 10px 10px;
+}
+
+#search-icon {
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 10px 10px;
+}
+
+#search-icon:hover {
+    cursor: pointer;
+}

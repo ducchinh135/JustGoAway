@@ -1,3 +1,5 @@
+@import url('../css/fonts.css');
+
 :root {
     --accent: #3DB45E;
     --dark: #17191D;
@@ -17,12 +19,12 @@ body {
 }
 
 .wrapper p, h1 {
-    font-family: var(--OpenSans);
+    /* font-family: var(--OpenSans); */
     font-weight: 400;
 }
 
 .wrapper h4, button {
-    font-family: var(--OpenSans);
+    /* font-family: var(--OpenSans); */
     font-weight: 700;
     text-transform: uppercase;
 }
