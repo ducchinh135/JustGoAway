@@ -10,11 +10,8 @@
     --OpenSans : 'OpenSans', cursive;
 }
 
-body {
-    background-color: var(--dark);
-}
 
-.wrapper p, button, h1, h4 {
+.wrapper p, h1, h4 {
     color: var(--light);
 }
 
@@ -23,7 +20,7 @@ body {
     font-weight: 400;
 }
 
-.wrapper h4, button {
+.wrapper h4 {
     /* font-family: var(--OpenSans); */
     font-weight: 700;
     text-transform: uppercase;
@@ -38,14 +35,14 @@ body {
     font-size: 18px;
 }
 
-.wrapper button {
+/* .wrapper button {
     cursor: pointer;
     transition: var(--ease);
 }
 
 .wrapper button:hover {
     transform: scale(1.02);
-}
+} */
 
 .wrapper {
     display: grid;
@@ -82,10 +79,18 @@ body {
 }
 
 .top__section header button {
-    width: 131px;
-    padding: 12px 0;
-    background-color: var(--accent);
+    
+    padding: 1rem 3rem;
+    background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+    color: var(--dark);
     border: none;
+}
+
+.top__section header button:hover{
+    background: transparent;
+    border: 1px solid var(--light);
+    color: var(--light);
+    padding: 15px 3rem;
 }
 
 .content__section {
@@ -100,10 +105,6 @@ body {
 
 .playlist__one {
     grid-area: playlist__one;
-}
-
-.playlist__two {
-    grid-area: playlist__two;
 }
 
 .playlist__title {
