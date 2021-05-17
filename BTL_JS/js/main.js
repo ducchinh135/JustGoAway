@@ -71,10 +71,7 @@ btnMail.onclick = function () {
 }
 
 //
-// function Explore() {
-//     document.body.style.transform = 'translateY(-1000px)';
-//     document.body.style.transition = "1s";
-// }
+
 
 
 

@@ -35,14 +35,14 @@
     font-size: 18px;
 }
 
-/* .wrapper button {
+.wrapper button {
     cursor: pointer;
     transition: var(--ease);
 }
 
 .wrapper button:hover {
     transform: scale(1.02);
-} */
+}
 
 .wrapper {
     display: grid;
