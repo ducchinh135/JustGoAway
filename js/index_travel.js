@@ -1,4 +1,4 @@
-let postApi = "http://localhost:3000/post_travel";
+let postApi = "https://travel-blog-mindx.herokuapp.com/post_travel";
 
 function start() {
     getPosts(renderPosts);

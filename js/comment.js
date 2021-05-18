@@ -47,7 +47,7 @@ function dateComment() {
     //document.getElementById("dateCmt").innerHTML += (`<div class="inforBlog--userComment--date" id="dateCmt">${month} ${d}${","}${y}</div>`)
 }
 
-let commentApi = "http://localhost:3000/posts/1";
+let commentApi = "https://travel-blog-mindx.herokuapp.com/posts/1";
 
 function start() {
     getCmts(renderCmts);
