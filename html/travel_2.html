@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel_1</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </script>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/styles__inforBlog.css">
+    <link rel="stylesheet" href="../css/styles_blog.css">
+    <link rel="stylesheet" href="../css/styles_home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- ------------ AOS Library ------------------------- -->
+    <link rel="stylesheet" href="../css/aos.css">
+</head>
+
+<body>
+    <nav class="nav">
+        <div class="nav-menu flex-row">
+            <div class="nav-brand">
+                <a href="#" class="text-gray">Blooger</a>
+            </div>
+            <div class="toggle-collapse">
+                <div class="toggle-icons">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+            <div>
+                <ul class="nav-items">
+                    <a href="../html/home.html">
+                        <li class="nav-link">
+                            Home
+                        </li>
+                    </a>
+                    <a href="../html/travel.html">
+                        <li class="nav-link">
+                            Travel
+                        </li>
+                    </a>
+                    <a href="../html/eat.html">
+                        <li class="nav-link">
+                            Eat
+                        </li>
+                    </a>
+                    <a href="../html/relax.html">
+                        <li class="nav-link">
+                            Relax
+                        </li>
+                    </a>
+                    <a href="../Videos/index.html">
+                        <li class="nav-link">
+                            Video
+                        </li>
+                    </a>
+                </ul>
+            </div>
+            <div class="social text-gray">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+
+            <!-- Nav mobile -->
+            <div class="toggle-collapse" id="openNav">
+                <div class="toggle-icons">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+
+            <div class="nav-overlay" id="overlay"></div>
+
+            <div class="nav__mobile" id="navMobile">
+                <div class="nav__mobile-close" id="closeNav"><i class="fas fa-times"></i></div>
+                <ul class="nav__mobile-items">
+                    <li class="nav__mobile-link">
+                        <a href="./home.html">Home</a>
+                    </li>
+                    <li class="nav__mobile-link">
+                        <a href="./travel.html">Travel</a>
+                    </li>
+                    <li class="nav__mobile-link">
+                        <a href="./eat.html">Eat</a>
+                    </li>
+                    <li class="nav__mobile-link">
+                        <a href="./relax.html">Relax</a>
+                    </li>
+                    <li class="nav__mobile-link">
+                        <a href="../Videos/index.html">Videos</a>
+                    </li>
+                </ul>
+                <div class="social__mobile text-gray">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="inforBlog">
+        <main>
+            <section class="site-title1">
+                <div class="site-background1" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Tours & Travels</h3>
+                    <h1>Amazing Place on Earth</h1>
+                    <a href="#exploree"><button class="btn">Explore</button></a>
+                </div>
+            </section>
+        </main>
+        <div class="inforBlog--search">
+            <div>
+                <i id="search-icon" class="fas fa-search"></i>
+                <span id="search-bar" style="display: none;">
+                    <i id="search" onclick="searchBlog()" class="fas fa-search"></i>
+                    <strong id="fade"><input type="text" placeholder="Search..." id="txtSearch" /></strong>
+                    <strong id="deleteSearch" onclick="deleteSearch()"><i class="fas fa-times"></i></strong>
+                </span>
+            </div>
+        </div>
+        <script>
+            $("#search-icon").click(function () {
+                $("#search-bar").toggle();
+            });
+        </script>
+        <div class="inforBlog--container" id="exploree" data-aos="zoom-in" data-aos-delay="200">
+
+        </div>
+
+        <div class="inforBlog--comment" data-aos="flip-up" data-aos-delay="200">
+            <div class="inforBlog--comment__body">
+                <div class="commnet--title">
+                    <p>Commnent</p>
+                </div>
+                <div class="line--comment"></div>
+                <div class="comment--main">
+                    <div class="author--imgage"><img src="../img/avatar.jpg" /></div>
+                    <form>
+                        <textarea placeholder="Write your comment" id="txtComment"></textarea>
+                        <div class="btn--commnent">
+                            <button id="clear">Cancel</button>
+                            <input type="button" value="Publish" id="creatCmt" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="inforBlog--userComment" id="userComment">
+
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="about-us" data-aos="fade-right" data-aos-delay="200">
+                <h2>About us</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quia atque nemo ad modi officiis
+                    iure, autem nulla tenetur repellendus.</p>
+            </div>
+            <div class="newsletter" data-aos="fade-right" data-aos-delay="200">
+                <h2>Newsletter</h2>
+                <p>Stay update with our latest</p>
+                <div class="form-element">
+                    <input type="text" placeholder="Email" id="txtMail">
+                    <span id="btnMail"><a id="hrefMail" href="mailto:abc@gmail.com"><i
+                                class="fas fa-chevron-right"></a></i></span>
+                </div>
+            </div>
+
+            <div class="follow" data-aos="fade-left" data-aos-delay="200">
+                <h2>Follow us</h2>
+                <p>Let us be Social</p>
+                <div>
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+            </div>
+        </div>
+        <div class="rights flex-row">
+            <h4 class="text-gray">
+                Copyright ©2021 All rights reserved
+            </h4>
+        </div>
+        <div class="move-up">
+            <span><i class="fas fa-arrow-circle-up fa-2x"></i></span>
+        </div>
+    </footer>
+
+    <!------------------- javascript GET POST ------------------------->
+    <script>
+        let postApi = "http://localhost:3000/post_travel/2";
+
+        function start() {
+            getPosts(renderPosts);
+        }
+        start();
+
+        function getPosts(callback) {
+            fetch(postApi)
+                .then(function (reponsive) {
+                    return reponsive.json();
+                })
+                .then(callback)
+        }
+
+        function renderPosts(posts) {
+            let contentBlog = document.querySelector(".inforBlog--container");
+
+            console.log(posts);
+            let htmls = `
+    <div class="inforBlog--container__author">
+        <div class="author--imgage"><img src="../img/avatar.jpg" /></div>
+        <span class="date">Nov 19,2020</span>
+    </div>
+    <div class="inforBlog--container__title">
+        <span>
+            <h1>${posts.title}</h1>
+        </span>
+    </div>
+    <div class="inforBlog--container__main">
+    <div class="main--head">
+        <span>
+            <strong>${posts.mainHead}</strong>
+        </span>
+    </div>
+    <div class="main--imgage">
+        <img src="${posts.image}" />
+    </div>
+    <div class="main--welcome">
+        <span>${posts.mainWelcome}</span>
+    </div>
+    <div class="main--focus">
+        <span>${posts.mainFocus}</span>
+    </div>
+    <div class="main--cate">
+        <span>${posts.mainCate}</span>
+    </div>
+    <div class="main--content">
+        <span>${posts.mainContent}</span>
+    </div>
+    <div class="main--foot">
+        <span>${posts.mainFoot}</span>
+    </div>
+    </div>
+
+    <div class="line--blog__1"></div>
+        <div class="inforBlog--container__share">
+        <ul>
+            <li><i class="fab fa-facebook-f"></i></li>
+            <li><i class="fab fa-twitter"></i></li>
+            <li><i class="fab fa-instagram"></i></li>
+            <li><i class="fas fa-link"></i></li>
+        </ul>
+        <div>
+            <span>Travel</span>
+        </div>
+    </div>
+    <div class="line--blog__2"></div>
+    <div class="inforBlog--container__infor">
+        <div class="blog--view">
+            <p>0</p>
+            <p>views</p>
+        </div>
+        <div class="blog--love"><i class="far fa-heart"></i></div>
+    </div>
+    `;
+
+            contentBlog.innerHTML = htmls;
+        }
+    </script>
+
+    <!------------------- javascript GET COMMENT ------------------------->
+    <script>
+        function dateComment() {
+            let m = new Date().getMonth();
+            let d = new Date().getDate();
+            let y = new Date().getFullYear();
+
+            let month;
+            switch (m) {
+                case 0:
+                    month = "Jan";
+                    break;
+                case 1:
+                    month = "Feb";
+                    break;
+                case 2:
+                    month = "Mar";
+                    break;
+                case 3:
+                    month = "Apr";
+                    break;
+                case 4:
+                    month = "May";
+                    break;
+                case 5:
+                    month = "Jun";
+                    break;
+                case 6:
+                    month = "Jul";
+                    break;
+                case 7:
+                    month = "Aug";
+                    break;
+                case 8:
+                    month = "Sep";
+                    break;
+                case 9:
+                    month = "Oct";
+                    break;
+                case 10:
+                    month = "Nov";
+                    break;
+                case 11:
+                    month = "Dec";
+                    break;
+            }
+            console.log(month);
+            console.log(d);
+            console.log(y);
+            return `${month} ${d}${","}${y}`;
+            //document.getElementById("dateCmt").innerHTML += (`<div class="inforBlog--userComment--date" id="dateCmt">${month} ${d}${","}${y}</div>`)
+        }
+
+        let commentApi = "http://localhost:3000/post_travel/2";
+
+        function start() {
+            getCmts(renderCmts);
+
+            getCmts(handleCreatCmt);
+        }
+
+        start();
+
+        function getCmts(callback) {
+            fetch(commentApi)
+                .then(function (reponsive) {
+                    return reponsive.json();
+                })
+                .then(callback)
+        }
+
+
+        function renderCmts(post) {
+            let cmtBlock = document.querySelector(".inforBlog--userComment");
+
+            let listCmts = post.comment.reverse();
+
+
+            let htmls = listCmts.map(function (comment) {
+
+                return `
+        <div class="inforBlog--userComment__body">
+            <div class="author--imgage"><img src="../img/avatar.jpg" /></div>
+            <div class="inforBlog--userComment__content">
+                <span>Anonymous Users</span>
+                <div class="inforBlog--userComment--date" id="dateCmt">${comment.date}</div>
+                <br />
+                <p id="contentCmt">${comment.content}</p>
+            </div>
+            <div id="delete" onclick="handleDeleteCmts(${comment.id})"><i class="fas fa-plus"></i></div>
+        </div>
+        `;
+            });
+            cmtBlock.innerHTML = htmls.join('');
+
+        }
+
+        function handleCreatCmt(post) {
+            let creatBtn = document.querySelector("#creatCmt");
+
+            creatBtn.onclick = function () {
+                let content = document.querySelector("#txtComment").value;
+                let date = dateComment();
+                let listID = [];
+                for (i in post.comment) {
+                    listID.push(Number(i))
+                }
+                console.log(listID.length);
+                let formData = {
+                    id: listID.length + 1,
+                    date: date,
+                    content: content
+                };
+
+                post.comment.push(formData);
+
+
+                fetch(commentApi, {
+                    method: 'PUT', // or 'PUT'
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ ...post }),
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        getCmts(renderCmts);
+                    })
+                    .catch((error) => {
+                        console.error('Error:', error);
+                    });
+                document.querySelector("#txtComment").value = "";
+            }
+
+        }
+        function handleDeleteCmts(id) {
+            let deleteID = id;
+            getCmts(function (post) {
+                post.comment.splice((id - 1), 1)
+                for (let i = 0; i < post.comment.length; i++) {
+                    post.comment[i].id = post.comment.length - (post.comment.length - (i + 1))
+                }
+                fetch(commentApi, {
+                    method: 'PUT', // or 'PUT'
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ ...post }),
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        getCmts(renderCmts);
+                    })
+                    .catch((error) => {
+                        console.error('Error:', error);
+                    });
+            })
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="../js/plugin.js"></script>
+    <script src="../js/search.js"></script>
+    <!-- --------- Owl-Carousel js ------------------->
+    <script src="../js/owl.carousel.min.js"></script>
+
+    <!-- ------------ AOS js Library  ------------------------- -->
+    <script src="../js/aos.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</body>
+
+</html>
