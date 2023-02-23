@@ -1,4 +1,4 @@
-let postApi = "https://travel-blog-mindx.herokuapp.com/post_travel";
+let postApi = "https://travelblog-json-server.vercel.app/post_travel";
 
 function start() {
     getPosts(renderPosts);
